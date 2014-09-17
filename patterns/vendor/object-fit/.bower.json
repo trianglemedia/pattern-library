@@ -1,0 +1,24 @@
+{
+  "name": "object-fit",
+  "version": "0.3.4",
+  "main": "polyfill.object-fit.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/anselmh/object-fit",
+  "_release": "0.3.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.3.4",
+    "commit": "8849cc77069796f5891f96fa9b527582da62b29f"
+  },
+  "_source": "git://github.com/anselmh/object-fit.git",
+  "_target": "~0.3.4",
+  "_originalSource": "object-fit",
+  "_direct": true
+}

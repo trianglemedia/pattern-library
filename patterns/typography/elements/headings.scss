@@ -1,0 +1,13 @@
+@for $i from 1 through 6 {
+    %type-element-h#{$i}, .h#{$i}, h#{$i} {
+        font-weight: bold;
+        margin: 0;
+        display: block;
+        @include rhythm-type(7 - $i);
+    }
+}
+
+.type-heading {
+    @extend %type-element-h1;
+    margin-top: -rhythm-margin(1);
+}

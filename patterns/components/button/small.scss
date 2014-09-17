@@ -1,0 +1,13 @@
+$button-small-padding-vertical: -rhythm-size(3);
+$button-small-padding-horizontal: -rhythm-size(4);
+
+.button-small {
+    @extend %type-size-small;
+    padding: $button-small-padding-vertical $button-small-padding-horizontal;
+    &.button-loading {
+        .button-loader {
+            // @include loading-triangle-height($triangle-height: $loading-triangle-height / 2);
+       
+        }
+    }
+}

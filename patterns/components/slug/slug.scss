@@ -1,0 +1,10 @@
+.slug {
+    background: $color-accent-1-light;
+    // color: $color-text-light;
+    text-align: center;
+    margin: 0 auto;
+    @extend %type-font-family-serif;
+    @extend %type-size-small;
+    @include rhythm-padding(1);
+    @extend %border-radius-medium;
+}

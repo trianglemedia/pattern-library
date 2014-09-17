@@ -1,0 +1,37 @@
+.sidenav {
+    @extend %border-radius-large;
+    @include rhythm-padding(1);
+    ul {
+        @extend %list-buttons;
+        list-style-type: none;
+    }
+}
+
+.sidenav-item {
+    $border: none;
+    @extend %type-size-large;
+    &:first-of-type {
+        a {
+            @extend %border-radius-medium-top;
+            border-top: $border;
+        }
+    }
+    &:last-of-type {
+        a {
+            @extend %border-radius-medium-bottom;
+            border: $border;
+            border-top: none;
+        }
+    }
+    a {
+        @include rhythm-padding(1);
+        background: $color-white;
+        border-left: $border;
+        border-right: $border;
+        &.active {
+            border: none;
+            @extend %border-radius-medium;
+            background: $color-accent-2;
+        }
+    }
+}

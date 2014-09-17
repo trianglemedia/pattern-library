@@ -1,0 +1,46 @@
+$loading-triangle-height: 15px;
+
+$loading-triangle-duration: 1s;
+$loading-triangle-timing-function: cubic-bezier(0.75, 0, 0.5, 1);
+$loading-triangle-iteration-count: infinite;
+$loading-triangle-direction: normal;
+
+@keyframes loading-triangle {
+    0% {
+        opacity: .4;
+    }
+    50% {
+        opacity: .3;
+        transform: scale(1) rotate(180deg);
+    }
+    100% {
+        opacity: .4;
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+
+@mixin loading-triangle($triangle-color, $triangle-height: $loading-triangle-height) {
+    display: inline-block;
+    padding: 0 -rhythm-size-large(1);
+    &::after {
+        animation: loading-triangle $loading-triangle-duration $loading-triangle-timing-function $loading-triangle-iteration-count $loading-triangle-direction;
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        transform-origin: 50% 55%;
+        border-bottom-style: solid;
+        border-bottom-color: $triangle-color;
+    }
+    @include loading-triangle-height($triangle-height);
+}
+
+@mixin loading-triangle-height($triangle-height) {
+    &::after {
+        margin-left: -$triangle-height;
+        border-left: $triangle-height / 1.7 solid transparent;
+        border-right: $triangle-height / 1.7 solid transparent;
+        border-bottom-width: $triangle-height;
+    }
+}

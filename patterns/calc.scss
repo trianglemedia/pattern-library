@@ -1,0 +1,40 @@
+$calc-rem-base: 16px !default;
+
+@function -lower-bound($range) {
+    @if length($range) <= 0 {
+        @return 0;
+    }
+    @return nth($range, 1);
+}
+
+@function -upper-bound($range) {
+    @if length($range) < 2 {
+        @return 999999999999;
+    }
+    @return nth($range, 2);
+}
+
+@function -calc-strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function -calc-convert-to-rem($value, $base-value: $calc-rem-base) {
+    $value: -calc-strip-unit($value) / -calc-strip-unit($base-value) * 1rem;
+    @if $value == 0rem {
+        $value: 0;
+    }
+    // Turn 0rem into 0
+    @return $value;
+}
+
+@function -calc-rem($values, $base-value: $calc-rem-base) {
+    $max: length($values);
+    @if $max == 1 {
+        @return -calc-convert-to-rem(nth($values, 1), $base-value);
+    }
+    $rem-values: ();
+    @for $i from 1 through $max {
+        $rem-values: append($rem-values, convert-to-rem(nth($values, $i), $base-value));
+    }
+    @return $rem-values;
+}

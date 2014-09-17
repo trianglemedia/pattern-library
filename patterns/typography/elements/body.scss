@@ -1,0 +1,49 @@
+@import "../fonts/families";
+@import "../fonts/sizes";
+
+$type-paragraph-max-width: 550px !default;
+
+body {
+    @extend %type-font-family-sans-serif;
+    @extend %type-size-medium;
+}
+
+p, blockquote {
+    @extend %type-font-family-serif;
+    @include rhythm-type($scale-index: 1);
+    hyphens: auto;
+    // "Avoid more than three consecutive hyphenated lines"
+    hyphenate-limit-lines: 3;
+    text-align: justify;
+    text-justify: inter-character;
+}
+
+p {
+    max-width: $type-paragraph-max-width;
+    display: block;
+    text-indent: 0;
+}
+
+//However the block quotations are set, there must be a visual distinction between main text and quotation, and again between the quotation and subsequent text.
+blockquote {
+    margin: 1.5em;
+}
+
+p {
+    dl, ol, ul {
+        @include rhythm-font-size($scale-index: 1);
+        @include rhythm-margin($scale-index: 1);
+        padding: 0;
+    }
+}
+
+p {
+    dd, dt, li {
+        @include rhythm-line-height($scale-index: 1);
+        margin: 0;
+    }
+}
+
+abbr, acronym {
+    letter-spacing: 0.1em;
+}

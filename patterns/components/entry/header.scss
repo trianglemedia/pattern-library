@@ -1,0 +1,55 @@
+.entry-header {
+    @extend %grid-container;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.entry-header-hero {
+    @extend %grid-column-8;
+    $height-ratio: 4;
+    $size: -rhythm-size-large($height-ratio) * -calc-strip-unit(-rhythm-size-large($height-ratio));
+    img {
+        width: 100%;
+        height: $size * $height-ratio / 2;
+        object-fit: cover;
+        overflow: hidden;
+        margin: 0 auto;
+        @extend %shadow-bottom;
+    }
+}
+
+.entry-header-title {
+    @extend %grid-column-8;
+    margin: -rhythm-size-large(1) / 2 0;
+}
+
+.entry-header-details {
+    @extend %grid-column-8;
+    @extend %grid-container;
+    text-align: center;
+    max-width: none;
+    font-style: italic;
+}
+
+.entry-header-details-time {
+    @extend %grid-column-2;
+    text-align: left;
+}
+
+.entry-header-details-author {
+    text-align: right;
+    @extend %grid-column-2;
+    @extend %grid-column-offset-2;
+}
+
+.entry-header-details-sub {
+    @extend %grid-column-8;
+}
+
+.entry-header-details-filed {
+    @extend %grid-column-8;
+}
+
+.entry-header-details-comments {
+    @extend %grid-column-8;
+}

@@ -1,0 +1,50 @@
+// $color-text: #292b2b !default;
+// $color-link: #415e70 !default;
+// $color-accent-1: #a53e52 !default;
+// $color-accent-2: #5a2833 !default;
+// $color-fill: #f3ece1 !default;
+// 
+//
+
+$color-darken-modifier: 20% !default;
+$color-lighten-modifier: 10% !default;
+
+$color-black: black;
+$color-white: white;
+$color-gray-dark: #292b2b;
+$color-gray: #aaaaaa;
+$color-silver: #eeeeee;
+$color-silver-dark: darken($color-silver, $color-darken-modifier);
+$color-silver-darker: darken($color-silver-dark, $color-darken-modifier);
+
+$color-silver-light: #efefef;
+$color-blue: #66a4e4;
+$color-blue-light: #cce5ec;
+$color-red: #e597c8;
+$color-brown-light: #e6e3bb;
+
+$color-text: $color-gray-dark !default;
+$color-link: $color-blue !default;
+$color-accent-1: $color-red !default;
+$color-accent-2: $color-blue-light !default;
+$color-fill: $color-brown-light !default;
+
+$color-text-light: lighten($color-text, $color-lighten-modifier);
+$color-text-dark: darken($color-text, $color-darken-modifier);
+
+$color-link-light: lighten($color-link, $color-lighten-modifier);
+$color-link-dark: darken($color-link, $color-darken-modifier);
+
+$color-accent-1-light: lighten($color-accent-1, $color-lighten-modifier);
+$color-accent-1-dark: darken($color-accent-1, $color-darken-modifier);
+
+$color-accent-2-light: lighten($color-accent-2, $color-lighten-modifier);
+$color-accent-2-dark: darken($color-accent-2, $color-darken-modifier);
+
+$color-fill-light: lighten($color-fill, $color-lighten-modifier);
+$color-fill-lighter: lighten($color-fill, $color-lighten-modifier * 2);
+$color-fill-dark: darken($color-fill, $color-darken-modifier);
+$color-fill-darker: darken($color-fill, $color-darken-modifier * 2);
+
+@import "elements/body";
+@import "elements/links";

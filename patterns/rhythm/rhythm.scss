@@ -1,0 +1,72 @@
+$rhythm-base-size: 16 !default;
+$rhythm-base-line-height: $rhythm-base-size * 1.5 !default;
+
+// Ascending: h1, h2, h3, h4, h5, h6
+$rhythm-type-scale: 16, 18, 21, 24, 36, 48 !default;
+
+$rhythm-scale: 4, 8, 12, 16, 20, 24, 28, 32, 36 !default;
+
+@mixin rhythm-line-height($scale-index) {
+    $scale: nth($rhythm-type-scale, $scale-index);
+    @if $scale-index >= 5 {
+        //Double line height for h1 and h2
+        line-height: $rhythm-base-line-height / $scale * 2em;
+    }
+    @else {
+        line-height: $rhythm-base-line-height / $scale * 1em;
+    }
+}
+
+@function -rhythm-margin($scale-index) {
+    $scale: nth($rhythm-type-scale, $scale-index);
+    @return $rhythm-base-line-height / $scale * 1rem;
+}
+
+@mixin rhythm-margin($scale-index) {
+    margin-bottom: -rhythm-margin($scale-index);
+}
+
+@mixin rhythm-padding($scale-index) {
+    padding: -rhythm-margin($scale-index);
+}
+
+@function -rhythm-size($scale-index) {
+    $scale: nth($rhythm-scale, $scale-index);
+    @return $scale / $rhythm-base-size * 1rem;
+}
+
+@function -rhythm-size-large($scale-index) {
+    $scale: nth($rhythm-scale, $scale-index);
+    @return $scale / $rhythm-base-size * 4rem;
+}
+
+@function -rhythm-type-size($scale-index) {
+    $scale: nth($rhythm-type-scale, $scale-index);
+    @return $scale / $rhythm-base-size * 1rem;
+}
+
+@mixin rhythm-font-size($scale-index) {
+    font-size: -rhythm-type-size($scale-index);
+}
+
+@mixin rhythm-type($scale-index) {
+    @include rhythm-font-size($scale-index);
+    @include rhythm-margin($scale-index);
+    @include rhythm-line-height($scale-index);
+}
+
+%rhythm-header {}
+
+%rhythm-body {}
+
+%rhythm-item-small {
+    padding-bottom: -rhythm-size-large(1);
+}
+
+%rhythm-item-medium {
+    padding-bottom: -rhythm-size-large(2);
+}
+
+%rhythm-item-large {
+    padding-bottom: -rhythm-size-large(4);
+}

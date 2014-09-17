@@ -1,0 +1,25 @@
+.user-card {
+    @extend %grid-container;
+    @extend %rhythm-item-medium;
+}
+
+.user-card-avatar {
+    @extend %grid-column-8;
+}
+
+.user-card-info {
+    @extend %grid-container-collapsed;
+    @extend %grid-column-8;
+    .user-link {
+        @extend %grid-column-8;
+        @include rhythm-margin(6);
+        text-align: center;
+    }
+}
+
+.user-card-bio {
+    @extend %grid-column-8;
+    p {
+        @extend %type-size-small;
+    }
+}

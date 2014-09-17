@@ -1,0 +1,31 @@
+.button-combo-wrapper {}
+
+.button-combo {
+    @extend %border-radius-small-left;
+    margin-right: 0;
+}
+
+.button-combo-closed {}
+
+.button-combo-opened {
+    margin-bottom: 0;
+}
+
+.button-dropdown {
+    @extend %border-radius-small-right;
+    margin-right: $button-margin;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.button-combo-options {
+    //display: block;
+    display: none;
+    clear: both;
+    ul {
+        padding: -rhythm-size-large(1);
+        @extend %shadow-fan-bottom;
+        @extend %border-radius-small;
+        display: block;
+    }
+}

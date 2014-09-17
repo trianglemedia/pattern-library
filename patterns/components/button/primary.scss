@@ -1,0 +1,21 @@
+$button-primary-bg-color: darken($button-bg-color, 20%);
+$button-primary-bg-color-loading: lighten($button-primary-bg-color, 5%);
+$button-primary-bg-color-hover: darken($button-primary-bg-color, 5%);
+$button-primary-text-color: $color-white;
+$button-primary-text-color-loading: lighten($button-primary-bg-color-loading, 10%);
+
+.button-primary {
+    background-color: $button-primary-bg-color;
+    color: $button-primary-text-color;
+    &:hover {
+        color: $button-primary-text-color;
+        background-color: $button-primary-bg-color-hover;
+    }
+    &.button-loading {
+        background-color: $button-primary-bg-color-loading;
+        color: $button-primary-text-color-loading;
+        .button-loader {
+            @include loading-triangle($button-primary-text-color);
+        }
+    }
+}
