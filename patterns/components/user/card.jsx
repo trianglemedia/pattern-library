@@ -1,7 +1,9 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
-var Author = require('./link.jsx');
+var Link = require('./link.jsx');
 var Avatar = require('./avatar.jsx');
 
 var Card = React.createClass({
@@ -15,13 +17,23 @@ var Card = React.createClass({
   render: function() {
     return (
      <div className="user-card">
+     <div className="user-card-primary">
      <div className="user-card-avatar">
      <Avatar name={this.props.name}/>
      </div>
      <div className="user-card-info">
-     <Author name={this.props.name}/>
-    
+     <Link name={this.props.name}/>
      </div>
+     </div>
+      <div className="user-card-about">
+      <p>
+      I don't criticize you! And if you're worried about criticism, 
+      sometimes a diet is the best defense.
+      That's what it said on 'Ask Jeeves.' I'm afraid I just blue myself. 
+      I'm half machine. I'm a monster. I'm a monster. Marry me.
+      </p>
+      </div>
+     
      </div>
     );
   }
@@ -29,4 +41,4 @@ var Card = React.createClass({
 
 module.exports = Card;
 
-
+}());

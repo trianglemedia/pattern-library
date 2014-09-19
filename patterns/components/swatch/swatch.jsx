@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
 
@@ -14,9 +16,16 @@ var Swatch = React.createClass({
   var colorClasses = 'swatch-'+this.props.color + ' swatch-display';
   
     return (
-      <div className="swatch"><span className="swatch-info">{this.props.color}</span><span className={colorClasses}></span></div>
+      <div className="swatch">
+      <span className="swatch-info">
+      {this.props.color}
+      </span>
+      <span className={colorClasses}></span>
+      </div>
     );
   }
 });
 
 module.exports = Swatch;
+
+}());

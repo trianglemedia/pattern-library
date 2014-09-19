@@ -3,10 +3,10 @@ $flow-default-float: left !default;
 $flow-opposite-direction: right !default;
 
 @if $flow-text-direction == ltr {
-    $flow-default-float: left !global;
-    $flow-opposite-direction: right !global;
+  $flow-default-float: left !global;
+  $flow-opposite-direction: right !global;
 }
 @else {
-    $flow-default-float: right !global;
-    $flow-opposite-direction: left !global;
+  $flow-default-float: right !global;
+  $flow-opposite-direction: left !global;
 }

@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
 
@@ -24,3 +26,6 @@ var GridRow = React.createClass({
 });
 
 module.exports = GridRow;
+
+
+}());

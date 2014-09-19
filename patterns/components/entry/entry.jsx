@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
 
@@ -13,3 +15,5 @@ var Entry = React.createClass({
 });
 
 module.exports = Entry;
+
+}());

@@ -1,0 +1,35 @@
+.entry-preview {
+  @extend %grid-container-collapsed;
+}
+
+.entry-preview-image {
+  @extend %grid-column-3-collapsed;
+  img {
+    height: 100%;
+    object-fit: fill;
+    width: 100%;
+  }
+}
+
+.entry-preview-info {
+  @extend %grid-column-5;
+}
+
+.entry-preview-info-author {
+  @extend %grid-column-3-collapsed;
+}
+
+.entry-preview-info-share {
+  @extend %grid-column-4;
+  @extend %grid-column-offset-1;
+  @extend %grid-container-collapsed;
+}
+
+.entry-preview-info-share-button {
+  @extend %grid-column-2;
+}
+
+.entry-preview-info-content {
+  @extend %grid-column-8-collapsed;
+  margin-top: $rhythm-item-small;
+}

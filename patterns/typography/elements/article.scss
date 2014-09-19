@@ -1,6 +1,6 @@
 .article {
-    // "In continuous text mark all paragraphs after the first with an indent of at least one em"
-    p + p {
-        text-indent: 1em;
-    }
+  // "In continuous text mark all paragraphs after the first with an indent of at least one em"
+  p + p {
+    text-indent: 1em;
+  }
 }

@@ -1,31 +1,28 @@
-.button-combo-wrapper {}
-
 .button-combo {
-    @extend %border-radius-small-left;
-    margin-right: 0;
+  @extend %border-radius-small-left;
+  float: left;
+  margin-right: 0;
 }
 
-.button-combo-closed {}
-
 .button-combo-opened {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .button-dropdown {
-    @extend %border-radius-small-right;
-    margin-right: $button-margin;
-    font-weight: normal;
-    margin-bottom: 0;
+  @extend %border-radius-small-right;
+  font-weight: normal;
+  margin-bottom: 0;
+  margin-right: $button-margin;
 }
 
 .button-combo-options {
-    //display: block;
-    display: none;
-    clear: both;
-    ul {
-        padding: -rhythm-size-large(1);
-        @extend %shadow-fan-bottom;
-        @extend %border-radius-small;
-        display: block;
-    }
+  //display: block;
+  clear: both;
+  display: none;
+  ul {
+    @extend %shadow-fan-bottom;
+    @extend %border-radius-small;
+    display: block;
+    padding: -rhythm-size-large(1);
+  }
 }

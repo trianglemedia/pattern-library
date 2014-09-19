@@ -54,16 +54,6 @@ gulp.task('html', ['styles', 'scripts', 'views'], function () {
         .pipe($.size());
 });
 
-gulp.task('images', function () {
-    return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
-            optimizationLevel: 3,
-            progressive: true,
-            interlaced: true
-        })))
-        .pipe(gulp.dest('dist/images'))
-        .pipe($.size());
-});
 
 gulp.task('fonts', function () {
     return gulp.src($.mainBowerFiles())
@@ -73,11 +63,6 @@ gulp.task('fonts', function () {
         .pipe($.size());
 });
 
-gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist'], {
-        read: false
-    }).pipe($.rimraf());
-});
 
 gulp.task('bower', function() {
   return gulp.src($.mainBowerFiles()).pipe(gulp.dest('.tmp/lib/'))

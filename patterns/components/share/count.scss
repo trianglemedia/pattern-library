@@ -1,0 +1,11 @@
+.share-count {
+  @extend %type-size-small;
+}
+
+.share-count-value {
+  @extend %type-size-large;
+  display: inline-block;
+  font-weight: $type-font-weight-bold;
+  line-height: $type-size-large;
+  width: -rhythm-size-large(3);
+}

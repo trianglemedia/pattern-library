@@ -2,19 +2,19 @@ $shadow-opacity: 0.15 !default;
 $shadow-color: rgba(160, 160, 160, $shadow-opacity) !default;
 
 %shadow-right {
-    box-shadow: -rhythm-size(1) / 2 0px -rhythm-size(4) 0px $shadow-color;
+  box-shadow: -rhythm-size(1) / 2 0 -rhythm-size(4) 0 $shadow-color;
 }
 
 %shadow-bottom {
-    &::after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: -rhythm-size(1);
-        box-shadow: 0px -rhythm-size(2) -rhythm-size(2) 0 $shadow-color;
-    }
+  &::after {
+    box-shadow: 0 -rhythm-size(2) -rhythm-size(2) 0 $shadow-color;
+    content: "";
+    display: block;
+    height: -rhythm-size(1);
+    width: 100%;
+  }
 }
 
 %shadow-fan-bottom {
-    box-shadow: 0px -rhythm-size(1) / 2 -rhythm-size(1) / 4 2px $shadow-color;
+  box-shadow: 0 -rhythm-size(1) / 2 -rhythm-size(1) / 4 2px $shadow-color;
 }

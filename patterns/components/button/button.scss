@@ -9,32 +9,32 @@ $button-padding-vertical: -rhythm-size(4);
 $button-padding-horizontal: -rhythm-size(4);
 
 .button-wrapper {
-    display: inline-block;
+  display: inline-block;
 }
 
 .button {
-    float: left;
-    padding: $button-padding-vertical $button-padding-horizontal;
-    margin-right: $button-margin;
-    display: inline-block;
-    background-color: $button-bg-color;
-    font-weight: bold;
-    @extend %border-radius-small;
-    @extend %type-size-medium;
-    @include rhythm-margin(4);
-    cursor: pointer;
+  @extend %border-radius-small;
+  @extend %type-size-medium;
+  background-color: $button-bg-color;
+  color: $button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: $button-margin;
+  max-height: 49px;
+  padding: $button-padding-vertical $button-padding-horizontal;
+  //@include rhythm-margin(4);
+  &:hover {
+    background-color: $button-bg-color-hover;
     color: $button-text-color;
-    &:hover {
-        color: $button-text-color;
-        background-color: $button-bg-color-hover;
+  }
+  &.button-loading {
+    background-color: $button-bg-color-loading;
+    color: $button-text-color-loading;
+    .button-loader {
+      @include loading-triangle($button-text-color);
     }
-    &.button-loading {
-        background-color: $button-bg-color-loading;
-        color: $button-text-color-loading;
-        .button-loader {
-            @include loading-triangle($button-text-color);
-        }
-    }
+  }
 }
 
 @import "primary";
@@ -42,34 +42,6 @@ $button-padding-horizontal: -rhythm-size(4);
 @import "buttongroup";
 @import "combo";
 
-/*
-.button-loading {
-    &::before {
-        content: '';
-        border-radius: $button-loading-circle-radius;
-        border-style: solid;
-        border-width: 1px;
-        border-color: $button-text-color;
-        display: inline-block;
-        width: $button-loading-circle-radius * 2;
-        height: $button-loading-circle-radius * 2;
-        line-height: $button-loading-circle-radius;
-        margin-right: -rhythm-size(2);
-        animation-name: 'button-pulse-animation';
-        animation-duration: 1500ms;
-        transform-origin: 50% 50%;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-    &.button-primary {
-        background-color: $button-primary-bg-color-loading;
-        color: $button-primary-text-color-loading;
-        &::before {
-            border-color: $button-primary-text-color;
-        }
-    }
-}*/
-
 .button-disabled {
-    cursor: not-allowed !important;
+  cursor: not-allowed !important;
 }

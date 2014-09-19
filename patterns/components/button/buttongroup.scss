@@ -1,25 +1,25 @@
 $button-group-border-color: $color-silver-dark;
 
 .button-group {
-    display: inline-block;
-    margin-right: $button-margin;
-    .button-wrapper {
-        $border: 1px solid $button-group-border-color;
-        &:first-of-type {
-            .button {
-                @extend %border-radius-small-left;
-            }
-        }
-        &:last-of-type {
-            .button {
-                @extend %border-radius-small-right;
-                border-right: 0;
-            }
-        }
-        .button {
-            border-right: $border;
-            margin-right: 0;
-            border-radius: 0;
-        }
+  display: inline-block;
+  margin-right: $button-margin;
+  .button-wrapper {
+    $border: 1px solid $button-group-border-color;
+    &:first-of-type {
+      .button {
+        @extend %border-radius-small-left;
+      }
     }
+    &:last-of-type {
+      .button {
+        @extend %border-radius-small-right;
+        border-right: 0;
+      }
+    }
+    .button {
+      border-radius: 0;
+      border-right: $border;
+      margin-right: 0;
+    }
+  }
 }

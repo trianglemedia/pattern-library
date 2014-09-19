@@ -2,4 +2,20 @@
 
 $fa-font-path: "../lib";
 
-@import "vendor/fontawesome/scss/font-awesome";
+@import "vendor/fontawesome/scss/variables";
+@import "vendor/fontawesome/scss/mixins";
+@import "vendor/fontawesome/scss/path";
+@import "vendor/fontawesome/scss/core";
+@import "vendor/fontawesome/scss/fixed-width";
+
+.#{$fa-css-prefix}-angle-down:before {
+  content: $fa-var-angle-down;
+}
+
+.#{$fa-css-prefix}-angle-left:before {
+  content: $fa-var-angle-left;
+}
+
+.#{$fa-css-prefix}-angle-right:before {
+  content: $fa-var-angle-right;
+}

@@ -1,0 +1,16 @@
+.user-author {
+  @extend %grid-container;
+  line-height: $user-avatar-small-size;
+}
+
+.user-author-avatar {
+  @extend %grid-column-2-collapsed;
+  .user-avatar {
+    margin: 0;
+  }
+}
+
+.user-author-info {
+  @extend %grid-column-6-collapsed;
+  text-indent: -rhythm-size(2);
+}

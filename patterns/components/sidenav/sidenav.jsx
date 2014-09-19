@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
 
@@ -35,7 +37,11 @@ var SideNav = React.createClass({
             
         return (
         <li key={key} className="sidenav-item">
-        <a href={linkLocation} data-tpl-magellan={magellan} data-tpl-magellan-marker={location} className={linkClasses}>{item.name}</a>
+        <a href={linkLocation} data-tpl-magellan={magellan} 
+          data-tpl-magellan-marker={location} 
+          className={linkClasses}>
+        {item.name}
+        </a>
         </li>
         );
       })
@@ -47,3 +53,5 @@ var SideNav = React.createClass({
 });
 
 module.exports = SideNav;
+
+}());

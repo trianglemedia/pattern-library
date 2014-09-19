@@ -1,33 +1,26 @@
-$user-avatar-size: -rhythm-size-large(7);
+$user-avatar-size: 100%;
+$user-avatar-small-size: -rhythm-size-large(3);
 
 .user-avatar {
-    width: $user-avatar-size;
-    height: $user-avatar-size;
+  @extend %effect-shade-hover;
+  display: block;
+  margin: 0 auto;
+  max-width: -rhythm-size-large(6) * 4;
+  width: $user-avatar-size;
+  &::after {
+    border-radius: $user-avatar-size / 2;
+  }
+  img {
+    border-radius: $user-avatar-size / 2;
     display: block;
+    height: 100%;
     margin: 0 auto;
-    img {
-        border-radius: $user-avatar-size / 2;
-        width: $user-avatar-size;
-        height: $user-avatar-size;
-        display: block;
-        margin: 0 auto;
-    }
-    position: relative;
-    &::after {
-        content: '\A';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        border-radius: $user-avatar-size / 2;
-        background: rgba($color-accent-2, 0.2);
-        opacity: 0;
-        transition: all .6s;
-    }
-    &:hover {
-        &::after {
-            opacity: 1;
-        }
-    }
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.user-avatar-small {
+  height: $user-avatar-small-size;
+  width: $user-avatar-small-size;
 }

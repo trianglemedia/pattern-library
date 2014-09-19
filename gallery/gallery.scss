@@ -1,65 +1,61 @@
 @import "../patterns/patterns";
 
 #gallery-wrapper {
-    @extend %grid-container-full;
-    margin: 0 0 -rhythm-size-large(6) 0;
+  @extend %grid-container-full;
+  margin: 0 0 -rhythm-size-large(6);
 }
 
 #gallery-side {
+  @extend %grid-column-2;
+  display: none;
+  padding: 0;
+  @media #{$media-large-up} {
+    display: inherit;
+  }
+  > div {
     @extend %grid-column-2;
-    display: none;
-    @media #{$media-large-up} {
-        display: inherit;
-    }
+    @extend %shadow-right;
     padding: 0;
-    & > div {
-        position: fixed;
-        @extend %grid-column-2;
-        @extend %shadow-right;
-        padding: 0;
-    }
+    position: fixed;
+  }
 }
 
 #gallery-nav {
-    padding: 0 1rem;
-    height: 65%;
-    overflow-y: auto;
+  height: 65%;
+  overflow-y: auto;
+  padding: 0 1rem;
 }
 
 .gallery-logo {
-    @include rhythm-padding(1);
-    height: 35%;
-    a {
-        margin: 2em auto;
-        text-align: center;
-    }
+  @include rhythm-padding(1);
+  height: 35%;
+  a {
+    margin: 2em auto;
+    text-align: center;
+  }
 }
 
 .gallery-about {
-    @extend %grid-column-8;
+  @extend %grid-column-8;
 }
 
 #gallery-primary {
-    @extend %grid-column-8-last;
-    @media #{$media-large-up} {
-        @include grid-column-span(6);
-    }
+  @extend %grid-column-8-last;
+  @media #{$media-large-up} {
+    @include grid-column-span(6);
+  }
 }
 
 .pattern {
-    @extend %rhythm-item-large;
-    @extend %grid-container;
-    @extend %grid-column-8;
+  @extend %rhythm-item-large;
+  @extend %grid-container;
+  @extend %grid-column-8;
 }
 
 .pattern-section {
-    @extend %rhythm-item-small;
+  @extend %rhythm-item-small;
 }
 
 .pattern-details {
-    padding: 1em 0 0 0;
+  padding: 1em 0 0;
 }
-
-.pattern-display {}
-
-.pattern-name {}

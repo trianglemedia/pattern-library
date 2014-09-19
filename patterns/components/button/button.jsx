@@ -1,4 +1,6 @@
 /** @jsx React.DOM */
+(function() {
+"use strict";
 var React = require('react/addons');
 
 
@@ -26,7 +28,7 @@ var Button = React.createClass({
     var wrapperClassCheck = {
       'button-wrapper': true,
       'button-combo-wrapper': this.props.combo
-    }
+    };
     var wrapperClasses = cx(wrapperClassCheck);
     var dropDown = "";
     if(this.props.combo) {
@@ -37,14 +39,31 @@ var Button = React.createClass({
         'button-primary': this.props.primary
       };
       var dropDownClasses = cx(dropDownClassCheck);
-      var dropDownOptions = <div className="button-combo-options"><ul className="button-combo-options"><li>Hello</li></ul></div>;
-      dropDown = <span><a className={dropDownClasses}><i className="fa fa-angle-down fa-fw"></i></a>{dropDownOptions}</span>;
+      var dropDownOptions = <div className="button-combo-options">
+        <ul className="button-combo-options">
+          <li>Hello</li>
+        </ul>
+      </div>;
+      dropDown = <span>
+      <a className={dropDownClasses}>
+        <i className="fa fa-angle-down fa-fw"></i>
+      </a>
+      {dropDownOptions}
+      </span>;
 
     }
     return (
-      <span className={wrapperClasses}><a className={classes}><span className="button-loader"></span>{this.props.text}</a>{dropDown}</span>
+      <span className={wrapperClasses}>
+        <a className={classes}>
+          <span className="button-loader"></span>
+        {this.props.text}
+      </a>{dropDown}
+      </span>
     );
   }
 });
 
 module.exports = Button;
+
+
+}());

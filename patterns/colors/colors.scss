@@ -30,6 +30,9 @@ $color-accent-2: $color-blue-light !default;
 $color-fill: $color-brown-light !default;
 
 $color-text-light: lighten($color-text, $color-lighten-modifier);
+$color-text-lighter: lighten($color-text-light, $color-lighten-modifier);
+$color-text-lightest: lighten($color-text-lighter, $color-lighten-modifier);
+
 $color-text-dark: darken($color-text, $color-darken-modifier);
 
 $color-link-light: lighten($color-link, $color-lighten-modifier);

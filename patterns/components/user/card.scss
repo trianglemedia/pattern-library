@@ -1,25 +1,39 @@
 .user-card {
-    @extend %grid-container;
-    @extend %rhythm-item-medium;
+  @extend %grid-container;
+  height: 140px;
+  //TODO no magic numbers
 }
 
 .user-card-avatar {
-    @extend %grid-column-8;
+  @extend %grid-column-8;
 }
 
 .user-card-info {
-    @extend %grid-container-collapsed;
-    @extend %grid-column-8;
-    .user-link {
-        @extend %grid-column-8;
-        @include rhythm-margin(6);
-        text-align: center;
-    }
+  @extend %grid-column-8;
+  text-align: center;
+  .user-link {
+    display: inline-block;
+    margin: -rhythm-size(1) 0;
+    text-align: center;
+  }
 }
 
 .user-card-bio {
-    @extend %grid-column-8;
-    p {
-        @extend %type-size-small;
-    }
+  @extend %grid-column-8;
+  p {
+    @extend %type-size-small;
+  }
+}
+
+.user-card-primary {
+  @extend %grid-column-1-collapsed;
+  @extend %grid-column-offset-2;
+}
+
+.user-card-about {
+  @extend %grid-column-3;
+  @extend %align-middle;
+  p {
+    @extend %type-size-small;
+  }
 }

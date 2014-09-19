@@ -6,41 +6,41 @@ $loading-triangle-iteration-count: infinite;
 $loading-triangle-direction: normal;
 
 @keyframes loading-triangle {
-    0% {
-        opacity: .4;
-    }
-    50% {
-        opacity: .3;
-        transform: scale(1) rotate(180deg);
-    }
-    100% {
-        opacity: .4;
-        transform: scale(1) rotate(360deg);
-    }
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1) rotate(180deg);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1) rotate(360deg);
+  }
 }
 
 
 @mixin loading-triangle($triangle-color, $triangle-height: $loading-triangle-height) {
-    display: inline-block;
-    padding: 0 -rhythm-size-large(1);
-    &::after {
-        animation: loading-triangle $loading-triangle-duration $loading-triangle-timing-function $loading-triangle-iteration-count $loading-triangle-direction;
-        content: "";
-        display: block;
-        width: 0;
-        height: 0;
-        transform-origin: 50% 55%;
-        border-bottom-style: solid;
-        border-bottom-color: $triangle-color;
-    }
-    @include loading-triangle-height($triangle-height);
+  @include loading-triangle-height($triangle-height);
+  display: inline-block;
+  padding: 0 -rhythm-size-large(1);
+  &::after {
+    animation: loading-triangle $loading-triangle-duration $loading-triangle-timing-function $loading-triangle-iteration-count $loading-triangle-direction;
+    border-bottom-color: $triangle-color;
+    border-bottom-style: solid;
+    content: "";
+    display: block;
+    height: 0;
+    transform-origin: 50% 55%;
+    width: 0;
+  }
 }
 
 @mixin loading-triangle-height($triangle-height) {
-    &::after {
-        margin-left: -$triangle-height;
-        border-left: $triangle-height / 1.7 solid transparent;
-        border-right: $triangle-height / 1.7 solid transparent;
-        border-bottom-width: $triangle-height;
-    }
+  &::after {
+    border-bottom-width: $triangle-height;
+    border-left: $triangle-height / 1.7 solid transparent;
+    border-right: $triangle-height / 1.7 solid transparent;
+    margin-left: -$triangle-height;
+  }
 }

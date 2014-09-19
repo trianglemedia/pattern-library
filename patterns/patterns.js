@@ -1,4 +1,6 @@
 'use strict';
+//TODO Change to require  with browserify-shim
+var objectFit = objectFit || null;
 
 var $ = require('jquery');
 var prefix = "tpl-";

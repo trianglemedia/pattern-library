@@ -1,0 +1,19 @@
+//TODO Consistent rhythm sizes
+$form-input-padding: $button-small-padding-vertical;
+
+input[type="text"] {
+  @extend %type-size-medium;
+  @extend %border-radius-medium;
+  border: 1px solid $button-bg-color;
+  color: $color-text-lighter;
+  outline: none;
+  padding: $form-input-padding;
+}
+
+input[type="submit"] {
+  @extend .button;
+  @extend .button-primary;
+  @extend .button-small;
+  border: 0;
+  margin-right: 0;
+}

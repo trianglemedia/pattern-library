@@ -1,43 +1,40 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('./wrapper');
 
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license']
-});
-var merge = require('merge-stream');
+var styleBundle = gulp.bundles.stylesheets;
 
-$.license = require('./license');
-
-function pipeStylesheet(fromFile, toFile) {
-    return gulp.src(fromFile)
-        .pipe($.plumber({}))
-        .pipe($.rubySass({
-            loadPath: ['bower_components/', 'patterns/']
+gulp.task('styles', ['styles:lint'], function () {
+    return styleBundle.main
+        .pipe(gulp.$.plumber({}))
+        .pipe(gulp.$.rubySass({
+            loadPath: styleBundle.sourceDirs,
+            sourcemap: gulp.config.env === "dev",
+            sourcemapPath: styleBundle.buildPath,
+            compass: true,
+            bundleExec: true,
+            style: "compact"
         }))
-        .pipe($.autoprefixer('> 5%'))
-        //.pipe(gulp.dest('.tmp/stylesheets/'))
-        .pipe($.concat(toFile))
-        .pipe($.csso())
-        .pipe($.license())
-        .pipe(gulp.dest('.tmp/stylesheets/'))
-        .pipe($.size());
-}
-
-gulp.task('styles', ['styles:vendor', 'styles:gallery'], function () {
-    return pipeStylesheet('patterns/patterns.scss', 'patterns.css');
+        .pipe(gulp.dest(styleBundle.buildPath))
+        .pipe(gulp.$.filter("*.css"))
+        .pipe(gulp.$.autoprefixer(styleBundle.autoprefixer))
+        .pipe(gulp.$.concat('app.css'))
+        .pipe(gulp.$.csso())
+        .pipe(gulp.$.license())
+        .pipe(gulp.dest(styleBundle.buildPath))
+        .pipe(gulp.$.size());
 });
 
-gulp.task('styles:vendor', function() {
-    return gulp.src($.mainBowerFiles({
-            filter: /(.*)\.css/ig
-    }))
-    .pipe($.concat('vendor.css'))
-    .pipe($.csso())
-    .pipe(gulp.dest('.tmp/stylesheets/'))
-    .pipe($.size());
+gulp.task('styles:lint', function () {
+    return styleBundle.sources
+        .pipe(gulp.$.plumber({}))
+        .pipe(gulp.$.scssLint({
+            config: "sass_lint.yml",
+            bundleExec: true
+        }))
+        .pipe(gulp.$.scssLint.failReporter());
 });
 
-gulp.task('styles:gallery', ['styles:vendor'], function () {
-    return pipeStylesheet('gallery/gallery.scss', 'gallery.css');
+gulp.task('styles:watch', ['styles'], function() {
+    gulp.watch(styleBundle.sourceGlobs, ['styles']);
 });

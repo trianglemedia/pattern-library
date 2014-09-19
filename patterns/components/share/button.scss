@@ -1,0 +1,25 @@
+$share-button-size: 53px;
+
+.share-button {
+  @extend %effect-shade-hover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: inline-block;
+  height: $share-button-size;
+  width: $share-button-size;
+  &::after {
+    border-radius: $share-button-size;
+  }
+}
+
+.share-button-facebook {
+  background-image: url("/images/components/share/icon_round_facebook.png");
+}
+
+.share-button-twitter {
+  background-image: url("/images/components/share/icon_round_twitter.png");
+}
+
+.share-button-pinterest {
+  background-image: url("/images/components/share/icon_round_pinterest.png");
+}
