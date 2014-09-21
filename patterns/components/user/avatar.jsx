@@ -19,7 +19,7 @@ var Avatar = React.createClass({
       'user-avatar-small': this.props.size === "small"
     };
     var classes = cx(classCheck);
-    var imageSource = "/" + this.props.name.toLowerCase() + ".jpg";
+    var imageSource = "/images/" + this.props.name.toLowerCase() + ".jpg";
     return (
      <a href="#" className={classes}><img src={imageSource}/></a>
     );

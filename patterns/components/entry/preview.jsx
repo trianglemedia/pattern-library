@@ -6,13 +6,14 @@ var React = require('react/addons');
 var Author = require('../user').Author;
 
 var ShareButton = require('../share').Button;
+var Post =require('../post/post.jsx');
 
 var Preview = React.createClass({
   render: function() {
     return (
       <div className="entry-preview">
         <div className="entry-preview-image">
-        <img src="/scout.jpg"/>
+        <img src="/images/scout.jpg"/>
         </div>
         <div className="entry-preview-info">
         <h2>{this.props.title}</h2>
@@ -31,7 +32,7 @@ var Preview = React.createClass({
         </div>
         </div>
         <div className="entry-preview-info-content">
-        <p>
+        <Post value="
         Kif might! It's just like the story of the grasshopper and the octopus. 
         All year long, the grasshopper kept burying acorns for winter,
         while the octopus mooched off 
@@ -42,7 +43,7 @@ var Preview = React.createClass({
         but nowadays shut up! Besides, these are adult stemcells, 
         harvested from perfectly healthy adults 
         whom I killed for their stemcells. Why would a robot need to drink?
-        </p>
+        "/>
         </div>
         </div>
       </div>

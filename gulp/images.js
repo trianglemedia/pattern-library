@@ -12,3 +12,7 @@ gulp.task('images', function () {
         .pipe(gulp.dest(gulp.bundles.images.buildPath))
         .pipe(gulp.$.size());
 });
+
+gulp.task('images:watch', ['images'], function() {
+
+});

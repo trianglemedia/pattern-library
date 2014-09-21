@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('./wrapper');
 
 var browserSync = require('browser-sync');
 var httpProxy = require('http-proxy');
@@ -30,15 +30,15 @@ function browserSyncInit(baseDir, files, browser) {
       baseDir: baseDir,
       middleware: proxyMiddleware
     },
-    browser: browser
+    browser: browser,
+    injectChanges: false
   });
 
 }
 
 gulp.task('serve', ['watch'], function () {
   browserSyncInit([
-    'gallery',
-    '.tmp'
+    gulp.config.buildPath
   ], [
     'gallery/*.html',
     '.tmp/styles/**/*.css',

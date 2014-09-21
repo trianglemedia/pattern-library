@@ -13,7 +13,7 @@ var EntryHeader = React.createClass({
     
     <figure className="entry-header-hero"
         data-picture="" data-alt="">
-        <img alt="" src="/cara5.jpg"/>
+        <img alt="" src="/images/cara.jpg"/>
     </figure>
                                 
     <h1 className="entry-header-title">Cara Delevingne Has Enormous Eyes</h1>
@@ -28,8 +28,9 @@ var EntryHeader = React.createClass({
         </time>
         <span className="entry-header-details-sub">
         <span className="entry-header-details-filed">
-            Filed under 
-            <a href="/topic/layout-grids">Celebrities</a>,
+            Filed under <a href="/topic/layout-grids">
+            Celebrities
+            </a>,
             <a href="/topic/mobile-multidevice">Fashion</a>
             </span>
             <span className="entry-header-details-comments">

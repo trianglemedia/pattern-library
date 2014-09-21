@@ -12,9 +12,16 @@ module.exports = {
         stylesheets: {
             path: "stylesheets",
             extension: ".scss",
+            resultExtension: ".css",
             sourceDirs: ["./patterns", "./gallery"],
             main: ["./patterns/patterns.scss", "./gallery/gallery.scss"],
             autoprefixer: "> 5%"
+        },
+        html: {
+            path: "",
+            extension: ".html",
+            sourceDirs: ["./patterns", "./gallery"],
+            main: [],
         },
         images: {
             path: "images",
@@ -25,7 +32,8 @@ module.exports = {
     },
     env: {
         dev: {
-            buildPath: ".tmp/"
+            buildPath: ".tmp/",
+            configDir: "config/"
         }
     }
 };

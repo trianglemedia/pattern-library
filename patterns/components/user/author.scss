@@ -12,5 +12,18 @@
 
 .user-author-info {
   @extend %grid-column-6-collapsed;
+  @extend %grid-container;
   text-indent: -rhythm-size(2);
+}
+
+.user-author-info-name {
+  @extend %grid-column-8-collapsed;
+  line-height: $user-avatar-small-size/2;
+}
+
+.user-author-info-date {
+  @extend %grid-column-8-collapsed;  
+  @extend %type-size-small;
+  color: $color-text-lightest;
+  line-height: $user-avatar-small-size/2;
 }

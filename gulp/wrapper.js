@@ -14,6 +14,7 @@ function processConfig(gulp, config) {
     wrapper.config = config;
     var envName = argv['env'] ? argv['env'] : "dev";
     wrapper.config.env = wrapper.config.env[envName];
+    wrapper.config.env.name = envName;
     wrapper.bundles = {};
 
     var bowerRC = jsonf.readFileSync(path.join(__dirname, '../.bowerrc'));
@@ -23,18 +24,21 @@ function processConfig(gulp, config) {
     config.buildPath = env.buildPath;
 
     function processBundle(bundle, name) {
+        bundle.name = name;
         bundle.buildPath = path.resolve(path.join(config.buildPath, bundle.path));
         bundle.sourceGlobs = bundle.sourceDirs.map(function (dir) {
             return path.join(dir, "**/*" + bundle.extension);
         });
         bundle.sourceGlobs.push(bowerIgnore);
+        bundle.resultExtension = bundle.resultExtension || bundle.extension;
+        bundle.resultGlobs = [path.join(bundle.buildPath, "**/*" + bundle.resultExtension)];
         bundle.mainFiles = bundle.main ? bundle.main.map(function (mainFile) {
             return path.resolve(mainFile);
         }) : [];
         bundle._main = bundle.main;
         Object.defineProperty(bundle, "main", {
             get: function () {
-                return gulp.src(bundle._main);
+                return gulp.src(bundle._main).pipe(gulp.$.plumber())/*.pipe(gulp.$.debug({verbose: false, title: name + "-main"}))*/;
             },
             set: function (value) {
                //TODO Error
@@ -42,7 +46,15 @@ function processConfig(gulp, config) {
         });
         Object.defineProperty(bundle, "sources", {
             get: function () {
-                return gulp.src(bundle.sourceGlobs).pipe(gulp.$.cached(name + "-sources"));
+                return gulp.src(bundle.sourceGlobs).pipe(gulp.$.plumber())/*.pipe(gulp.$.debug({verbose: false, title: name + "-sources"}))*/.pipe(gulp.$.cached(name + "-sources"));
+            },
+            set: function (value) {
+               //TODO Error
+            }
+        });
+        Object.defineProperty(bundle, "results", {
+            get: function () {
+                return gulp.src(bundle.resultGlobs, {cwd: path.join(config.buildPath) }).pipe(gulp.$.cached(name + "-results"));
             },
             set: function (value) {
                //TODO Error

@@ -20,6 +20,7 @@
 
 .user-card-bio {
   @extend %grid-column-8;
+
   p {
     @extend %type-size-small;
   }
@@ -33,6 +34,10 @@
 .user-card-about {
   @extend %grid-column-3;
   @extend %align-middle;
+  display: none;
+  @media #{$media-large-up} {
+    display: block;
+  }
   p {
     @extend %type-size-small;
   }

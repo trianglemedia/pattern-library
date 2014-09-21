@@ -12,8 +12,10 @@ module.exports = {
     Slug: require('./slug/slug.jsx'),
     Slideshow: require('./slideshow/slideshow.jsx'),
     Button: require('./button/button.jsx'),
+    Post: require('./post/post.jsx'),
     button: require('./button/'),
     entry: require('./entry/'),
     user: require('./user/'),
-    share: require('./share/')
+    share: require('./share/'),
+    comment: require('./comment')
 };

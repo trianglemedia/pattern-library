@@ -11,6 +11,17 @@ var EntryFooter = React.createClass({
     var authorNames = this.props.authors.map(function(author) {
         return author.name;
     });
+    var allAuthorNames = authorNames[0];
+    for(var i = 1; i < authorNames.length; i+=1) {
+        if(authorNames.length > 2) {
+            allAuthorNames += ", ";
+        }
+        if(i+1 >= authorNames.length) {
+            //String.fromCharCode(38)
+            allAuthorNames += "and ";
+        }
+        allAuthorNames += authorNames[i];
+    }
     return (
         <footer className="entry-footer">
         <div className="entry-footer-authors">
@@ -26,10 +37,10 @@ var EntryFooter = React.createClass({
         }
         </div>
         <div className="entry-footer-notify">
-        <p>Email me when 
-        <span className="entry-footer-notify-names">
-            {authorNames.join(" " +String.fromCharCode(38) +" ")}
-            </span> post{authorNames.length > 1 ? "" : "s"}
+        <p>Email me when <span 
+            className="entry-footer-notify-names">
+            {allAuthorNames}
+            </span> post{authorNames.length > 1 ? " together" : "s"}
         </p>
         <form>
         <input type="text" placeholder="Email"/>

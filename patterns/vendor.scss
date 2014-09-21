@@ -1,6 +1,6 @@
 @import "vendor/reset";
 
-$fa-font-path: "../lib";
+$fa-font-path: "../fonts/";
 
 @import "vendor/fontawesome/scss/variables";
 @import "vendor/fontawesome/scss/mixins";
@@ -18,4 +18,8 @@ $fa-font-path: "../lib";
 
 .#{$fa-css-prefix}-angle-right:before {
   content: $fa-var-angle-right;
+}
+
+.#{$fa-css-prefix}-arrow-right:before {
+  content: $fa-var-arrow-right;
 }

@@ -15,14 +15,15 @@
   ],
   "dependencies": {
     "fontawesome": "~4.2.0",
-    "object-fit": "~0.3.4"
+    "object-fit": "~0.3.4",
+    "foundation": "~5.4.4"
   },
   "devDependencies": {},
   "overrides": {
     "object-fit": {
       "main": [
         "dist/polyfill.object-fit.css",
-        "dist/polyfill.object-fit.min.js"
+        "dist/polyfill.object-fit.js"
       ]
     }
   }

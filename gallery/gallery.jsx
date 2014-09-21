@@ -26,6 +26,9 @@ var ShareCount = components.share.Count;
 var ShareButton = components.share.Button;
 var ShareBar = components.share.Bar;
 
+var Comment = components.comment.Comment;
+var CommentSet = components.comment.Set;
+
 
 patterns.initialize();
 
@@ -199,7 +202,7 @@ var userPattern = {
 };
 
 var author = [{name:"Clementine"}];
-var twoAuthors = [{name:"Clementine"}, {name:"Scout"}];
+var threeAuthors = [{name:"Clementine"}, {name:"Scout"}, {name:"Cara"}];
 
 var entryPattern = {
     name: "Entry",
@@ -211,7 +214,7 @@ var entryPattern = {
     <h4>Single Author</h4>
     <EntryFooter authors={author}/>
     <h4>Multiple Authors</h4>
-    <EntryFooter authors={twoAuthors}/>
+    <EntryFooter authors={threeAuthors}/>
     <h3>Preview</h3>
     <EntryPreview title="Powerful Dogs In Business"/>
     </div>
@@ -221,12 +224,12 @@ var slides = [
 {
     title: "Cara Delevingne",
     text: "A model. You can use the left and right keys to navigate.",
-    image: "/cara5.jpg"
+    image: "/images/cara.jpg"
 },
 {
     title: "Clementine",
     text: "A doggy model.",
-    image: "/clementine.jpg"
+    image: "/images/clementine.jpg"
 }
     ];
 var slideshowPattern = {
@@ -271,8 +274,22 @@ var sharePattern = {
     </div>
 };
 
+
+var commentPattern = {
+    name: "Comment",
+    about: "",
+    component: <div>
+    <CommentSet>
+    <Comment author="Clementine" post="Hello *Scout*."/>
+    <Comment author="Scout" post="Hello **Clementine**."/>
+    </CommentSet>
+    
+    </div>
+};
+
+
 var allPatterns = [swatchPattern, typePattern, slugPattern, buttonPattern, 
-userPattern, entryPattern, slideshowPattern, sharePattern];
+userPattern, entryPattern, slideshowPattern, sharePattern, commentPattern];
 
 
 $(document).ready(function () {

@@ -38,8 +38,9 @@ gulp.task('scripts:libs', function () {
   return gulp.src(gulp.$.mainBowerFiles({
       filter: /.+(\.js)$/ig
     }))
-    .pipe(gulp.$.concatSourcemap('libs.js'))
-    .pipe(gulp.dest(scriptBundle.buildPath));
+    .pipe(gulp.$.concat('_libs.js'))
+    .pipe(gulp.dest(scriptBundle.buildPath))
+    .pipe(gulp.$.size());
 });
 
 gulp.task('scripts:lint', function () {
@@ -47,7 +48,7 @@ gulp.task('scripts:lint', function () {
     .pipe(gulp.$.react({
       harmony: true
     }))
-    .pipe(gulp.$.jshint('.jshintrc'))
+    .pipe(gulp.$.jshint(path.join(gulp.config.env.configDir, '.jshintrc')))
     .pipe(gulp.$.jshint.reporter('jshint-stylish'))
     .pipe(gulp.$.jshint.reporter('fail'));
 });
@@ -61,7 +62,7 @@ gulp.task('scripts:watch', ['scripts'], function () {
     gulp.$.util.log("Rebundling");
     return bundler.bundle()
       .on('error', gulp.$.util.log.bind(gulp.$.util, 'Browserify Error'))
-      .pipe(source('bundle.js'))
+      .pipe(source('app.js'))
       .pipe(gulp.dest(scriptBundle.buildPath))
       .pipe(gulp.$.reload({stream:true}));
   }

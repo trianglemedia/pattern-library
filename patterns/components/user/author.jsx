@@ -23,7 +23,12 @@ var Author = React.createClass({
      <Avatar size="small" name={this.props.name}/>
      </div>
      <div className="user-author-info">
+     <span className="user-author-info-name">
       <Link name={this.props.name}/>
+    </span>
+    <span className="user-author-info-date">
+    {this.props.date}
+    </span>
      </div>
      </div>
     );

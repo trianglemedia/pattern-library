@@ -5,16 +5,21 @@ $user-avatar-small-size: -rhythm-size-large(3);
   @extend %effect-shade-hover;
   display: block;
   margin: 0 auto;
-  max-width: -rhythm-size-large(6) * 4;
+  max-height: -rhythm-size-large(2) * 3;
+  max-width: -rhythm-size-large(2) * 3;
   width: $user-avatar-size;
   &::after {
     border-radius: $user-avatar-size / 2;
+    max-height: -rhythm-size-large(2) * 3;
+    max-width: -rhythm-size-large(2) * 3;
   }
   img {
     border-radius: $user-avatar-size / 2;
     display: block;
     height: 100%;
     margin: 0 auto;
+    max-height: -rhythm-size-large(2) * 3;
+    max-width: -rhythm-size-large(2) * 3;
     object-fit: cover;
     width: 100%;
   }

@@ -4,6 +4,7 @@
 var React = require('react/addons');
 
 var Size = require('../../size');
+var Post =require('../post/post.jsx');
 
 var $ = require('jquery');
 
@@ -61,7 +62,7 @@ var Slideshow = React.createClass({
   var classes = cx(classCheck);
   var slide = this.props.slides[this.state.position];
   var title = slide.title;
-  var text = slide.text;
+  var text = "**"+title+"** " + slide.text;
   var image = slide.image;
     return (
       <div className="slideshow">
@@ -79,7 +80,7 @@ var Slideshow = React.createClass({
       (<span className="slideshow-text-next" onClick={this.next}>Next</span>) 
       : "" 
       }
-      <p><strong>{title}</strong> {text}</p>
+      <Post value={text}/>
       </div>
       <div className="slideshow-image">
       {
@@ -99,7 +100,7 @@ var Slideshow = React.createClass({
       
       ) : ""
     }
-    <img src={image}/>
+    <img src={image} alt={title}/>
       </div>
     </div>
     );

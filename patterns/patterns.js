@@ -1,6 +1,5 @@
 'use strict';
-//TODO Change to require  with browserify-shim
-var objectFit = objectFit || null;
+
 
 var $ = require('jquery');
 var prefix = "tpl-";
@@ -35,6 +34,8 @@ function initializeModules() {
 function initialize() {
 
     $(document).ready(function () {
+        //TODO Change to require  with browserify-shim
+        var objectFit = window.objectFit || null;
         initializeModules();
         objectFit.polyfill({
             selector: 'img',
