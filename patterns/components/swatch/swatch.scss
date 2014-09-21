@@ -1,10 +1,10 @@
 .swatch-set {
-  @extend %clearfix;
+  @include clearfix();
   width: 100%;
 }
 
 .swatch {
-  @extend %grid-container;
+  @include grid-row();
   display: inline-block;
   height: 4em;
   text-align: center;
@@ -12,15 +12,15 @@
 }
 
 .swatch-info {
-  @extend %grid-column-2;
-  @extend %type-size-large;
-  @extend %align-middle;
+  @include grid-column(4);
+  @include type-size-large;
+  @include align-middle;
   font-weight: bold;
 }
 
 .swatch-display {
-  @extend %grid-column-6;
-  @extend %border-radius-large;
+  @include grid-column(8);
+  @include border-radius-large;
   height: 100%;
 }
 

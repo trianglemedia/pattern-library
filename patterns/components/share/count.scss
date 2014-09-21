@@ -1,9 +1,9 @@
 .share-count {
-  @extend %type-size-small;
+  @include type-size-small;
 }
 
 .share-count-value {
-  @extend %type-size-large;
+  @include type-size-large;
   display: inline-block;
   font-weight: $type-font-weight-bold;
   line-height: $type-size-large;

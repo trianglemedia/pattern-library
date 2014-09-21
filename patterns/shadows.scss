@@ -1,11 +1,11 @@
 $shadow-opacity: 0.15 !default;
 $shadow-color: rgba(160, 160, 160, $shadow-opacity) !default;
 
-%shadow-right {
+@mixin shadow-right {
   box-shadow: -rhythm-size(1) / 2 0 -rhythm-size(4) 0 $shadow-color;
 }
 
-%shadow-bottom {
+@mixin shadow-bottom {
   &::after {
     box-shadow: 0 -rhythm-size(2) -rhythm-size(2) 0 $shadow-color;
     content: "";
@@ -15,6 +15,6 @@ $shadow-color: rgba(160, 160, 160, $shadow-opacity) !default;
   }
 }
 
-%shadow-fan-bottom {
+@mixin shadow-fan-bottom {
   box-shadow: 0 -rhythm-size(1) / 2 -rhythm-size(1) / 4 2px $shadow-color;
 }

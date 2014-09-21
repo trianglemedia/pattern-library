@@ -7,23 +7,18 @@ var styleBundle = gulp.bundles.stylesheets;
 gulp.task('styles', ['fonts', 'styles:lint'], function () {
     return styleBundle.main
         .pipe(gulp.$.plumber({}))
-        .pipe(gulp.$.rubySass({
-            loadPath: styleBundle.sourceDirs,
-            sourcemap: gulp.config.env === "dev",
-            sourcemapPath: styleBundle.buildPath,
-            compass: true,
-            bundleExec: true,
-            style: "compact"
+        .pipe(gulp.$.sass({
+            includePaths: ["patterns/vendor/foundation/scss/"]
         }))
         .pipe(gulp.dest(styleBundle.buildPath))
         .pipe(gulp.$.filter("*.css"))
         .pipe(gulp.$.autoprefixer(styleBundle.autoprefixer))
         .pipe(gulp.$.concat('app.css'))
-        .pipe(gulp.$.combineMediaQueries({
-            log: true
-        }))
+        //.pipe(gulp.$.combineMediaQueries({
+            //log: true
+        //}))
         .pipe(gulp.$.csso())
-        .pipe(gulp.$.license())
+        //.pipe(gulp.$.license())
         .pipe(gulp.dest(styleBundle.buildPath))
         .pipe(gulp.$.size())
         .pipe(gulp.$.reload({stream:true}));

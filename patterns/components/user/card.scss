@@ -1,15 +1,19 @@
 .user-card {
-  @extend %grid-container;
+  @include grid-row();
   height: 140px;
   //TODO no magic numbers
 }
 
 .user-card-avatar {
-  @extend %grid-column-8;
+  @include grid-column($columns: 12, $center: true);
+  .user-avatar {
+    height: $user-avatar-size-limit;
+    width: $user-avatar-size-limit;
+  }
 }
 
 .user-card-info {
-  @extend %grid-column-8;
+  @include grid-column(12);
   text-align: center;
   .user-link {
     display: inline-block;
@@ -19,26 +23,25 @@
 }
 
 .user-card-bio {
-  @extend %grid-column-8;
+  @include grid-column(12);
 
   p {
-    @extend %type-size-small;
+    @include type-size-small;
   }
 }
 
 .user-card-primary {
-  @extend %grid-column-1-collapsed;
-  @extend %grid-column-offset-2;
+  @include grid-column($columns:12, $offset:0);
 }
 
 .user-card-about {
-  @extend %grid-column-3;
-  @extend %align-middle;
+  @include grid-column(12);
+  @include align-middle;
   display: none;
-  @media #{$media-large-up} {
+  @media #{$medium-up} {
     display: block;
   }
   p {
-    @extend %type-size-small;
+    @include type-size-small;
   }
 }

@@ -23,7 +23,9 @@ $rhythm-scale: 4, 8, 12, 16, 20, 24, 28, 32, 36 !default;
 }
 
 @mixin rhythm-margin($scale-index) {
-  margin-bottom: -rhythm-margin($scale-index);
+  @media #{$medium-up} {
+    margin-bottom: -rhythm-margin($scale-index);
+  }
 }
 
 @mixin rhythm-padding($scale-index) {
@@ -61,17 +63,17 @@ $rhythm-scale: 4, 8, 12, 16, 20, 24, 28, 32, 36 !default;
 
 $rhythm-item-small: -rhythm-size-large(1);
 
-%rhythm-item-small {
+@mixin rhythm-item-small {
   padding-bottom: $rhythm-item-small;
 }
 
-%rhythm-item-medium {
+@mixin rhythm-item-medium {
   padding-bottom: -rhythm-size-large(2);
   &:last-of-type {
     padding-bottom: 0;
   }
 }
 
-%rhythm-item-large {
+@mixin rhythm-item-large {
   padding-bottom: -rhythm-size-large(4);
 }

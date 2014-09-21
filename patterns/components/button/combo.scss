@@ -1,5 +1,5 @@
 .button-combo {
-  @extend %border-radius-small-left;
+  @include border-radius-small($tr: false, $br: false);
   float: left;
   margin-right: 0;
 }
@@ -9,7 +9,7 @@
 }
 
 .button-dropdown {
-  @extend %border-radius-small-right;
+  @include border-radius-small($bl: false, $tl: false);
   font-weight: normal;
   margin-bottom: 0;
   margin-right: $button-margin;
@@ -20,8 +20,8 @@
   clear: both;
   display: none;
   ul {
-    @extend %shadow-fan-bottom;
-    @extend %border-radius-small;
+    @include shadow-fan-bottom;
+    @include border-radius-small;
     display: block;
     padding: -rhythm-size-large(1);
   }

@@ -1,44 +1,42 @@
 .comment {
-  @extend %grid-container-collapsed;
+  @include grid-row();
 }
 
 .comment-info {
-  @extend %grid-column-8-collapsed;
-  @extend %grid-container-collapsed;
+  @include grid-column($columns: 12, $collapse: true);
+  @include grid-row();
   line-height: $user-avatar-small-size;
 }
 
 .comment-info-actions {
-  @extend %grid-column-2-collapsed;
-  @extend %grid-column-offset-4;
+  @include grid-column($columns: 2, $collapse: true);
 }
 
 .comment-info-author {
-  @extend %grid-column-2-collapsed;
+  @include grid-column($columns: 10, $collapse: true);
 }
 
-.comment-info-date {  
-  @extend %grid-column-2-collapsed;
-  @extend %grid-column-offset-4;
-  @extend %type-size-small;
+.comment-info-date {
+  @include grid-column($columns: 4);
+  @include type-size-small;
 
 }
 
 .comment-info-arrow {
-  @extend %type-size-large;
-  @extend %grid-column-1-collapsed;
+  @include type-size-large;
+  @include grid-column($columns: 2);
   color: $color-text-lighter;
   line-height: $user-avatar-small-size;
 }
 
 .comment-info-replyto {
-  @extend %grid-column-2-collapsed;
+  @include grid-column($columns: 4);
 }
 
 
 .comment-post {
-  @extend %grid-column-8-collapsed;
-  padding: -rhythm-size(3) 0 0;
+  @include grid-column($columns: 12);
+  padding-top: -rhythm-size(3);
 }
 
 .comment-set-item {

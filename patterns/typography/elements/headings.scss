@@ -1,13 +1,16 @@
+@mixin type-element-h($i) {
+  display: block;
+  font-weight: bold;
+  margin: 0;
+  @include rhythm-type(7 - $i);
+}
 @for $i from 1 through 6 {
-  h#{$i}, .h#{$i}, %type-element-h#{$i} {
-    display: block;
-    font-weight: bold;
-    margin: 0;
-    @include rhythm-type(7 - $i);
+  h#{$i}, .h#{$i} { //, %type-element-h#{$i} {
+    @include type-element-h($i);
   }
 }
 
 .type-heading {
-  @extend %type-element-h1;
+  @include type-element-h(1);
   margin-top: -rhythm-margin(1);
 }

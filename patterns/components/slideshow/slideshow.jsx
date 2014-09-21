@@ -3,10 +3,27 @@
 "use strict";
 var React = require('react/addons');
 
-var Size = require('../../size');
 var Post =require('../post/post.jsx');
 
 var $ = require('jquery');
+
+function isViewable(elem, complete) {
+            var docViewTop = $(window).scrollTop();
+            var docViewBottom = docViewTop + $(window).height();
+
+            var elemTop = $(elem).offset().top;
+            var elemBottom = elemTop + $(elem).height();
+
+            var partial = (elemBottom <= docViewBottom);
+            var partial2 = (elemTop >= docViewTop);
+            if (complete) {
+                return partial && partial2;
+            } else {
+                return (((elemTop >= docViewTop) && (elemTop <=
+                    docViewBottom)) || ((elemBottom >= docViewTop) &&
+                    (elemBottom <= docViewBottom)));
+            }
+}
 
 
 var Slideshow = React.createClass({
@@ -21,7 +38,7 @@ var Slideshow = React.createClass({
   },
   checkKeyBindings: function() {
     var keybound = this.state.keybound;
-    var visible = Size.isViewable(this.getDOMNode());
+    var visible = isViewable(this.getDOMNode());
     if(keybound && !visible) {
       this.removeKeyBindings();
     } else if(!keybound && visible) {

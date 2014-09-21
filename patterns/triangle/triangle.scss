@@ -1,10 +1,10 @@
-%triangle-logo-shape {
+@mixin triangle-logo-shape {
   background-image: inline-image("./triangle/triangle.png");
   height: 150px;
   width: 174px;
 }
 
 a.triangle-logo-shape {
-  @extend %triangle-logo-shape;
+  @include triangle-logo-shape;
   display: block;
 }

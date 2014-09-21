@@ -1,16 +1,16 @@
 .slideshow {
-  @extend %grid-container;
+  @include grid-row();
 }
 
 .slideshow-text {
-  @extend %grid-column-4;
+  @include grid-column(6);
   position: relative;
   p {
     margin: -rhythm-size-large(2) 0 0;
   }
 }
 
-%slideshow-text-nav {
+@mixin slideshow-text-nav {
   @extend a;
   cursor: pointer;
   position: absolute;
@@ -18,17 +18,17 @@
 }
 
 .slideshow-text-previous {
-  @extend %slideshow-text-nav;
+  @include slideshow-text-nav;
   left: 0;
 }
 
 .slideshow-text-next {
-  @extend %slideshow-text-nav;
+  @include slideshow-text-nav;
   right: 0;
 }
 
 .slideshow-image {
-  @extend %grid-column-4;
+  @include grid-column(5);
   position: relative;
   img {
     max-width: 100%;
@@ -45,9 +45,9 @@
   }
 }
 
-%slideshow-image-nav {
+@mixin slideshow-image-nav {
   @extend a;
-  @extend %align-middle;
+  @include align-middle;
   color: #ffffff;
   cursor: pointer;
   font-size: -rhythm-size-large(4);
@@ -59,10 +59,10 @@
 }
 
 .slideshow-image-previous {
-  @extend %slideshow-image-nav;
+  @include slideshow-image-nav;
 }
 
 .slideshow-image-next {
-  @extend %slideshow-image-nav;
+  @include slideshow-image-nav;
   right: 0;
 }

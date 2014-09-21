@@ -1,7 +1,7 @@
 $share-button-size: 53px;
 
 .share-button {
-  @extend %effect-shade-hover;
+  @include effect-shade-hover;
   background-repeat: no-repeat;
   cursor: pointer;
   display: inline-block;

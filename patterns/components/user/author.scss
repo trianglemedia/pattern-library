@@ -1,29 +1,34 @@
 .user-author {
-  @extend %grid-container;
+  @include grid-row();
   line-height: $user-avatar-small-size;
 }
 
 .user-author-avatar {
-  @extend %grid-column-2-collapsed;
+  @include grid-column(0);  
+  display: none;
+  @media #{$medium-up} {
+    @include grid-column(2);
+    display: block;
+  }
   .user-avatar {
     margin: 0;
   }
 }
 
 .user-author-info {
-  @extend %grid-column-6-collapsed;
-  @extend %grid-container;
+  @include grid-column($columns: 6, $collapse: true);
+  @include grid-row();
   text-indent: -rhythm-size(2);
 }
 
 .user-author-info-name {
-  @extend %grid-column-8-collapsed;
+  @include grid-column($columns: 12, $collapse: true);
   line-height: $user-avatar-small-size/2;
 }
 
 .user-author-info-date {
-  @extend %grid-column-8-collapsed;  
-  @extend %type-size-small;
+  @include grid-column($columns: 12, $collapse: true);
+  @include type-size-small;
   color: $color-text-lightest;
   line-height: $user-avatar-small-size/2;
 }

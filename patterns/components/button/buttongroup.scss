@@ -7,12 +7,12 @@ $button-group-border-color: $color-silver-dark;
     $border: 1px solid $button-group-border-color;
     &:first-of-type {
       .button {
-        @extend %border-radius-small-left;
+        @include border-radius-small($tr: false, $br: false);
       }
     }
     &:last-of-type {
       .button {
-        @extend %border-radius-small-right;
+        @include border-radius-small($tl: false, $bl: false);
         border-right: 0;
       }
     }

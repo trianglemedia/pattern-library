@@ -1,19 +1,19 @@
 @import "../patterns/patterns";
 
 #gallery-wrapper {
-  @extend %grid-container-full;
+  @include grid-row();
   margin: 0 0 -rhythm-size-large(6);
 }
 
 #gallery-side {
-  @extend %grid-column-2;
+  @include grid-column(4);
   display: none;
   padding: 0;
-  @media #{$media-large-up} {
+  @media #{$large-up} {
     display: inherit;
   }
   > div {
-    @extend %grid-column-2;
+    @include grid-column(12);
     @extend %shadow-right;
     padding: 0;
     position: fixed;
@@ -36,20 +36,20 @@
 }
 
 .gallery-about {
-  @extend %grid-column-8;
+  @include grid-column(12);
 }
 
 #gallery-primary {
-  @extend %grid-column-8-last;
-  @media #{$media-large-up} {
-    @include grid-column-span(6);
+  @include grid-column($columns: 12, $collapse: true);
+  @media #{$large-up} {
+    @include grid-column(8);
   }
 }
 
 .pattern {
   @extend %rhythm-item-large;
-  @extend %grid-container;
-  @extend %grid-column-8;
+  @include grid-row();
+  @include grid-column($columns: 12, $collapse: true);
 }
 
 .pattern-section {

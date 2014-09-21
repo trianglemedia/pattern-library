@@ -4,11 +4,9 @@
 var $ = require('jquery');
 var prefix = "tpl-";
 
-var size = require('./size');
 var components = require('./components');
-var magellan = require('./magellan');
 
-var modules = [size, components, magellan];
+var modules = [components];
 
 var tpl = {
     $: $,
@@ -46,7 +44,5 @@ function initialize() {
 
 module.exports = {
     initialize: initialize,
-    components: components,
-    size: size,
-    magellan: magellan
+    components: components
 };

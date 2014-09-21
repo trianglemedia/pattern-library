@@ -1,17 +1,21 @@
 .share-bar {
-  @extend %grid-container-collapsed;
+  @include grid-row();
   line-height: $share-button-size;
 }
 
 .share-bar-count {
-  @extend %grid-column-3-collapsed;
+  @include grid-column(12);
 }
 
 .share-bar-buttons {
-  @extend %grid-container;
-  @extend %grid-column-5;
+  @include grid-row();
+  @include grid-column(7);
+  display: none;
+  @media #{$large-up} {
+    display: block;
+  }
 }
 
 .share-bar-button {
-  @extend %grid-column-1;
+  @include grid-column(2);
 }

@@ -28,10 +28,11 @@ var EntryHeader = React.createClass({
         </time>
         <span className="entry-header-details-sub">
         <span className="entry-header-details-filed">
-            Filed under <a href="/topic/layout-grids">
+            <span className="entry-header-details-filed-label">
+            Filed under </span><a href="/topic/layout-grids">
             Celebrities
-            </a>,
-            <a href="/topic/mobile-multidevice">Fashion</a>
+            </a>, <a 
+            href="/topic/mobile-multidevice">Fashion</a>
             </span>
             <span className="entry-header-details-comments">
             <a className="comment-count" href="#comments">23 Comments</a></span>

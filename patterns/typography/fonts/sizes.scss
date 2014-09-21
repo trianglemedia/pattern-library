@@ -2,26 +2,26 @@ $type-size-small: -rhythm-type-size(1) * 0.9;
 $type-size-medium: -rhythm-type-size(1);
 $type-size-large: -rhythm-type-size(2);
 
-%type-size-small {
+@mixin type-size-small {
   font-size: $type-size-small;
 }
 
-%type-size-medium {
+@mixin type-size-medium {
   font-size: $type-size-medium;
 }
 
-%type-size-large {
+@mixin type-size-large {
   font-size: $type-size-large;
 }
 
 .type-small {
-  @extend %type-size-small;
+  @include type-size-small;
 }
 
 .type-medium {
-  @extend %type-size-medium;
+  @include type-size-medium;
 }
 
 .type-large {
-  @extend %type-size-large;
+  @include type-size-large;
 }

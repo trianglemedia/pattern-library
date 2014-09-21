@@ -4,13 +4,13 @@
 $type-paragraph-max-width: 550px !default;
 
 body {
-  @extend %type-font-family-sans-serif;
-  @extend %type-size-medium;
+  @include type-font-family-sans-serif;
+  @include type-size-medium;
 }
 
 p,
 blockquote {
-  @extend %type-font-family-serif;
+  @include type-font-family-serif;
   @include rhythm-type($scale-index: 1);
   // "Avoid more than three consecutive hyphenated lines"
   hyphenate-limit-lines: 3;

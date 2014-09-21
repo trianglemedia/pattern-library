@@ -1,4 +1,4 @@
-%effect-shade-hover {
+@mixin effect-shade-hover {
   position: relative;
   &::after {
     background: rgba($color-accent-2, 0.2);

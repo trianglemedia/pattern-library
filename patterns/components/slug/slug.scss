@@ -1,8 +1,8 @@
 .slug {
-  @extend %type-font-family-serif;
-  @extend %type-size-small;
+  @include type-font-family-serif;
+  @include type-size-small;
   @include rhythm-padding(1);
-  @extend %border-radius-medium;
+  @include border-radius-medium;
   background: $color-accent-1-light;
   margin: 0 auto;
   // color: $color-text-light;

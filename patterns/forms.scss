@@ -2,8 +2,8 @@
 $form-input-padding: $button-small-padding-vertical;
 
 input[type="text"] {
-  @extend %type-size-medium;
-  @extend %border-radius-medium;
+  @include type-size-medium;
+  @include border-radius-medium;
   border: 1px solid $button-bg-color;
   color: $color-text-lighter;
   outline: none;
@@ -11,9 +11,9 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-  @extend .button;
-  @extend .button-primary;
-  @extend .button-small;
+  @include button;
+  @include button-primary;
+  @include button-small;
   border: 0;
   margin-right: 0;
 }

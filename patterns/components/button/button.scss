@@ -6,24 +6,28 @@ $button-text-color-loading: darken($button-bg-color, 10%);
 
 $button-margin: -rhythm-size-large(2);
 $button-padding-vertical: -rhythm-size(4);
-$button-padding-horizontal: -rhythm-size(4);
+$button-padding-horizontal: -rhythm-size(4);//4
 
 .button-wrapper {
   display: inline-block;
 }
 
-.button {
-  @extend %border-radius-small;
-  @extend %type-size-medium;
+@mixin button() {
+  @include border-radius-small;
+  @include type-size-medium;
   background-color: $button-bg-color;
+  box-sizing: content-box;
   color: $button-text-color;
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
+  margin: $rhythm-item-small 0;
   margin-right: $button-margin;
   max-height: 49px;
-  padding: $button-padding-vertical $button-padding-horizontal;
-  //@include rhythm-margin(4);
+  padding: $button-padding-vertical / 2 $button-padding-horizontal / 2;
+  @media #{$medium-up} {
+    padding: $button-padding-vertical $button-padding-horizontal;
+  }
   &:hover {
     background-color: $button-bg-color-hover;
     color: $button-text-color;
@@ -34,7 +38,11 @@ $button-padding-horizontal: -rhythm-size(4);
     .button-loader {
       @include loading-triangle($button-text-color);
     }
-  }
+  } 
+}
+
+.button {
+  @include button;
 }
 
 @import "primary";

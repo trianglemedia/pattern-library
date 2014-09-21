@@ -2,26 +2,26 @@ $type-font-family-sans-serif: "Helvetica Neue", Arial, Helvetica, Verdana, sans-
 $type-font-family-serif: "Georgia", serif !default;
 $type-font-family-mono: Consolas, "Lucida Console", Courier, monospace !default;
 
-%type-font-family-sans-serif {
+@mixin type-font-family-sans-serif {
   font-family: $type-font-family-sans-serif;
 }
 
-%type-font-family-serif {
+@mixin type-font-family-serif {
   font-family: $type-font-family-serif;
 }
 
-%type-font-family-mono {
+@mixin type-font-family-mono {
   font-family: $type-font-family-mono;
 }
 
 .type-sans-serif {
-  @extend %type-font-family-sans-serif;
+  @include type-font-family-sans-serif;
 }
 
 .type-serif {
-  @extend %type-font-family-serif;
+  @include type-font-family-serif;
 }
 
 .type-mono {
-  @extend %type-font-family-mono;
+  @include type-font-family-mono;
 }

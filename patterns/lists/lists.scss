@@ -5,13 +5,13 @@ ul {
   }
 }
 
-%list-scroll {
+@mixin list-scroll {
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto !important;
 }
 
-%list-buttons {
+@mixin list-buttons {
   li {
     width: 100%;
     a {
